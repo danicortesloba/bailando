@@ -5,6 +5,8 @@ const songRouter = Router();
 
 songRouter.route('/songs')
     .get(getAllSongs)
+
+songRouter.route('/songs')
     .post(createNewSong)
 
 songRouter.route('/songs/:title')

@@ -1,0 +1,19 @@
+import { Router } from 'express';
+import { createNewPlaylist, getAllPlaylists, getPlaylistByTitle, updatePlaylist, deletePlaylist, addSongToPlaylist } from '../controllers/playlist.controller.js';
+
+const playlistRouter = Router();
+
+playlistRouter.route('/playlists')
+    .get(getAllPlaylists)
+    .post(createNewPlaylist)
+
+playlistRouter.route('/playlists/:title')
+    .get(getPlaylistByTitle)
+    .delete(deletePlaylist)
+    .patch(updatePlaylist)
+    
+playlistRouter.route('/playlists/:id')
+    .patch(addSongToPlaylist)
+  
+
+    export default playlistRouter

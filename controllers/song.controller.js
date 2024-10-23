@@ -1,4 +1,4 @@
-import Song from '../models/song.model.js';
+import {Song} from '../models/Song.model.js';
 
 // Función para crear un nuevo libro
 const createNewSong = async (req, res) => {
@@ -23,6 +23,15 @@ const getSongByTitle = async (req, res) => {
     console.log(req.params)
     try {
         const song = await Song.findOne({ title: req.params.title });
+        res.json(song);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const getSongByFilter = async (req, res) => {
+    try {
+        const song = await Song.find(req.body);
         res.json(song);
     } catch (error) {
         res.status(500).json({ message: error.message });
