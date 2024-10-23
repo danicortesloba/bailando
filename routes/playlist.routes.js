@@ -12,7 +12,7 @@ playlistRouter.route('/playlists/:title')
     .delete(deletePlaylist)
     .patch(updatePlaylist)
     
-playlistRouter.route('/playlists/:id')
+playlistRouter.route('/playlists/modify/:id')
     .patch(addSongToPlaylist)
   
 
